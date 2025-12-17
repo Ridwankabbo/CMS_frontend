@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Singin = ()=>{
     const singin_url = 'http://localhost:8000/api/singin';
+
+    const navigate = useNavigate();
 
     const [data, setData] = useState({
         email:'',
@@ -25,6 +27,8 @@ const Singin = ()=>{
             console.log(result);
             localStorage.setItem('accessToken', result.token);
             console.log(localStorage.getItem('accessToken'));
+            
+            navigate('/dashboard');
             
             
             
