@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 const USERPROFILE_URL = "http://localhost:8000/api/dashboard";
 const Dashboard = () => {
     const [profileData, setprofileData] = useState([]);
-
+    const [updatedProfileData, setUpdatedProfilData] = useState([]);
     const navigate = useNavigate();
     const token = localStorage.getItem('accessToken');
     // console.log(token);
@@ -26,6 +26,13 @@ const Dashboard = () => {
         }
     }
 
+    const handleChange = (e) =>{
+        setUpdatedProfilData({
+            ...data,
+            [e.target.name]: e.target.value
+        });
+    }
+
 
     const handleUpdatedProfileSubmision = async (e) =>{
         e.preventDefault();
@@ -36,7 +43,8 @@ const Dashboard = () => {
                 'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json',
                 "Accept": "application/json",
-            }
+            },
+            body:JSON.stringify(updatedProfileData)
         })
     }
 
@@ -49,18 +57,18 @@ const Dashboard = () => {
             <h2>Profile information</h2>
 
             <div>
-                <form>
+                <form onSubmit={handleUpdatedProfileSubmision}>
                     <div>
                         <label htmlFor="name">Name:</label>
-                        <input type="text" name="name" id="name" className="bg-stone-100 py-2 px-10 mx-3 mb-5 border rounded-xl"/>
+                        <input type="text" name="name" id="name" onChange={handleChange} className="bg-stone-100 py-2 px-10 mx-3 mb-5 border rounded-xl"/>
                     </div>
                     <div>
                         <label htmlFor="email">Email:</label>
-                        <input type="email" name="email" id="email" className="bg-stone-100 py-2 px-10 mx-3 mb-5 border rounded-xl"/>
+                        <input type="email" name="email" id="email" onChange={handleChange} className="bg-stone-100 py-2 px-10 mx-3 mb-5 border rounded-xl"/>
                     </div>
                     <div>
                         <label htmlFor="email">Phone:</label>
-                        <input type="number" name="phone" id="phone" className="bg-stone-100 py-2 px-10 mx-3 mb-5 border rounded-xl"/>
+                        <input type="number" name="phone" id="phone" onChange={handleChange} className="bg-stone-100 py-2 px-10 mx-3 mb-5 border rounded-xl"/>
                     </div>
                     {/* <div>
                         <label htmlFor="email">:</label>

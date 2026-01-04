@@ -22,6 +22,7 @@ function App() {
         </Route>
         <Route path='/singup' element={<Singup/>}/>
         <Route path='/singin' element={<Singin/>}/>
+        
         <Route path='/dashboard' element={<DashboardLayout/>}>
           <Route index element={<Dashboard/>}/>
         </Route>
