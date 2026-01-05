@@ -26,7 +26,8 @@ const Singup = () => {
             
 
         } catch (error) {
-
+            console.log(error);
+            
         }
     }
 

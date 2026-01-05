@@ -1,16 +1,16 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 // import './App.css'
 import Header from './components/Header'
 import Carousel from './components/Carousel'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Layout from './components/Layout'
-import Home from './Home'
-import Singup from './singup'
+import Home from './pages/Home'
+import Singup from './pages/singup'
 import Singin from './assets/singin'
 import DashboardLayout from './assets/layouts/dashboardLayout'
-import Dashboard from './Dashboard'
+import Dashboard from './pages/Dashboard'
+import AdminLayout from './components/AdminLayout'
+import AdminPage from './pages/AdminPage'
 function App() {
   return (
     <>
@@ -26,6 +26,11 @@ function App() {
         <Route path='/dashboard' element={<DashboardLayout/>}>
           <Route index element={<Dashboard/>}/>
         </Route>
+
+        <Route path='/admin'  element={<AdminLayout/>}>
+          <Route index element={<AdminPage/>}/>
+        </Route>
+
        </Routes>
       </BrowserRouter>
     </>
