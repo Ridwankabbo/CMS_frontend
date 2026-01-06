@@ -27,8 +27,8 @@ function App() {
           <Route index element={<Dashboard/>}/>
         </Route>
 
-        <Route path='/admin'  element={<AdminLayout/>}>
-          <Route index element={<AdminPage/>}/>
+        <Route path='/admin'  element={<AdminPage/>}>
+          {/* <Route index element={<AdminPage/>}/> */}
         </Route>
 
        </Routes>
