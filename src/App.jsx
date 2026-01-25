@@ -3,14 +3,14 @@
 import Header from './components/Header'
 import Carousel from './components/Carousel'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Layout from './components/Layout'
+import Layout from './pages/Layout'
 import Home from './pages/Home'
 import Singup from './pages/singup'
-import Singin from './assets/singin'
+import Singin from './pages/singin'
 import DashboardLayout from './assets/layouts/dashboardLayout'
-import Dashboard from './pages/Dashboard'
-import AdminLayout from './components/AdminLayout'
-import AdminPage from './pages/AdminPage'
+import AdminLayout from './Admin/AdminLayout'
+import AdminPage from './Admin/AdminPage'
+import Dashboard from './Dashboard/Dashboard'
 function App() {
   return (
     <>
@@ -22,10 +22,12 @@ function App() {
         </Route>
         <Route path='/singup' element={<Singup/>}/>
         <Route path='/singin' element={<Singin/>}/>
+
+        <Route path='/dashboard' element={<Dashboard/>}/>
         
-        <Route path='/dashboard' element={<DashboardLayout/>}>
+        {/* <Route path='/dashboard' element={<DashboardLayout/>}>
           <Route index element={<Dashboard/>}/>
-        </Route>
+        </Route> */}
 
         <Route path='/admin'  element={<AdminPage/>}>
           {/* <Route index element={<AdminPage/>}/> */}

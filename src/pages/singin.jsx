@@ -33,6 +33,7 @@ const Singin = ()=>{
             
             
         } catch (error) {
+            console.log(error);
             
         }
     }
